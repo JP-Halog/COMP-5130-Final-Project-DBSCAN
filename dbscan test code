@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('csv_cleaned_marketing_campaign.csv')
 
 # Selecting the 'Income' and 'NumStorePurchases' columns
-data = df[['Income', 'NumStorePurchases']]
+# Dropping rows with missing data values
+data = df[['Income', 'NumStorePurchases']].dropna()
 
 # Normalizing the data
 scaler = StandardScaler()
