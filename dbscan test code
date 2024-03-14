@@ -4,7 +4,7 @@ from sklearn.cluster import DBSCAN
 import matplotlib.pyplot as plt
 
 # Assuming df is your DataFrame and it has been loaded properly
-df = pd.read_csv('your_file.csv')
+df = pd.read_csv('csv_cleaned_marketing_campaign.csv')
 
 # Selecting the 'Income' and 'NumStorePurchases' columns
 data = df[['Income', 'NumStorePurchases']]
