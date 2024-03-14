@@ -1,0 +1,24 @@
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import DBSCAN
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame and it has been loaded properly
+df = pd.read_csv('your_file.csv')
+
+# Selecting the 'Income' and 'NumStorePurchases' columns
+data = df[['Income', 'NumStorePurchases']]
+
+# Normalizing the data
+scaler = StandardScaler()
+data_scaled = scaler.fit_transform(data)
+
+# Running DBSCAN
+dbscan = DBSCAN(eps=0.5, min_samples=5)
+clusters = dbscan.fit_predict(data_scaled)
+
+# Plotting the results
+plt.scatter(data_scaled[:, 0], data_scaled[:, 1], c=clusters, cmap='viridis')
+plt.xlabel('Income')
+plt.ylabel('NumStorePurchases')
+plt.show()
